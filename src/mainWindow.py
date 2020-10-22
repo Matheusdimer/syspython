@@ -76,37 +76,43 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.btn_search.clicked.connect(self.search)
         self.btn_refresh.clicked.connect(self.dados)
 
+        self.table.verticalHeader().setVisible(False)
         self.dados()
     
     def dados(self, coluna="", busca=""):
         banco = Banco("./src/database/dados.db")
         self.result = banco.consulta("Produtos", pesquisa=busca, campo=coluna)
-        self.collumn = len(self.result[0])
         self.row = len(self.result)
-        self.table.setRowCount(0)
-        self.table.setColumnCount(self.collumn)
-        self.table.setHorizontalHeaderLabels(["Código", "Descrição", "Valor Unitário", "Tipo"])
-        self.table.setColumnWidth(0, 60)
-        self.table.setColumnWidth(1, 380)
-        self.table.setColumnWidth(2, 120)
-        self.table.setColumnWidth(3, 180)
-        for row_number, row_data in enumerate(self.result):
-            self.table.insertRow(row_number)
-            for collumn_number, data in enumerate(row_data):
-                
-                if collumn_number == 2:
-                    valor = (f"R$ {data:.2f}")
-                    self.item = QtWidgets.QTableWidgetItem(str(valor).replace(".", ","))
-                elif collumn_number == 0:
-                    valor = (f"{data:0>4}")
-                    self.item = QtWidgets.QTableWidgetItem(str(valor))
-                else:
-                    self.item = QtWidgets.QTableWidgetItem(str(data))
-                if collumn_number == 0 or collumn_number == 2:
-                    self.item.setTextAlignment(QtCore.Qt.AlignRight)
-                else:
-                    self.item.setTextAlignment(QtCore.Qt.AlignLeft)
-                self.table.setItem(row_number, collumn_number, self.item)
+        if self.row > 0:
+            self.collumn = len(self.result[0])
+            self.table.setRowCount(0)
+            self.table.setColumnCount(self.collumn)
+            self.table.setHorizontalHeaderLabels(["Código", "Descrição", "Valor Unitário", "Tipo"])
+            self.table.setColumnWidth(0, 60)
+            self.table.setColumnWidth(1, 380)
+            self.table.setColumnWidth(2, 120)
+            self.table.setColumnWidth(3, 200)
+            for row_number, row_data in enumerate(self.result):
+                self.table.insertRow(row_number)
+                for collumn_number, data in enumerate(row_data):
+                    
+                    if collumn_number == 2:
+                        valor = (f"R$ {data:.2f}")
+                        self.item = QtWidgets.QTableWidgetItem(str(valor).replace(".", ","))
+                    elif collumn_number == 0:
+                        valor = (f"{data:0>4}")
+                        self.item = QtWidgets.QTableWidgetItem(str(valor))
+                    else:
+                        self.item = QtWidgets.QTableWidgetItem(str(data))
+                    if collumn_number == 0 or collumn_number == 2:
+                        self.item.setTextAlignment(QtCore.Qt.AlignRight)
+                    else:
+                        self.item.setTextAlignment(QtCore.Qt.AlignLeft)
+                    self.table.setItem(row_number, collumn_number, self.item)
+        else:
+            self.table.setRowCount(0)
+            self.msgInfo("Pesquisa sem resultados.")
+
 
     def openCad(self):
         self.window = QtWidgets.QMainWindow()
