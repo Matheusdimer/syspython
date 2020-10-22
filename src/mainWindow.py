@@ -12,18 +12,18 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.btn_cad.clicked.connect(self.openCad)
         self.btn_cad.setStyleSheet("""
             QPushButton {
-                background: #61AB6D; 
+                background: #229440; 
                 color: #fff; 
                 font: Times New Roman; 
-                font-size: 10px; 
+                font-size: 12px; 
                 font-weight: 700; 
                 border-radius: 5px; 
                 height: 30px;
-                padding: 5rem;
+                padding: 0 10px;
             }
 
             QPushButton:hover {
-                background: #72bd6c;
+                background: #8ac298;
             }
             """
         )
@@ -44,10 +44,29 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 background: #3C8FBC; 
                 color: #fff; 
                 font: Times New Roman; 
-                font-size: 10px; 
+                font-size: 12px; 
                 font-weight: 700; 
                 border-radius: 5px; 
                 height: 30px;
+                padding: 0 5px;
+            }
+
+            QPushButton:hover {
+                background: #81b2eb;
+            }
+            """
+        )
+
+        self.btn_search.setStyleSheet(
+            """
+            QPushButton {
+                background: #3C8FBC; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 25px;
                 padding: 5rem;
             }
 
@@ -56,6 +75,23 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             }
             """
         )
+
+        self.lineSearch.setStyleSheet(
+            """
+            QLineEdit {
+                background: white;
+                height: 25px;
+                border: 1px solid #474747;
+                border-radius: 2px;
+                font-size: 14px;
+                font: sans-serif;
+            }
+            QLineEdit:focus {
+                border: 1px solid #23a5c2;
+            }
+            """
+        )
+
         self.filter = "CODIGO"
         self.toolFilter.setText("Filtro: Código")
 
@@ -125,7 +161,7 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.ui.btn_confirm.setStyleSheet("""
             QPushButton {
-                background: #61AB6D; 
+                background: #229440; 
                 color: #fff; 
                 font: Times New Roman; 
                 font-size: 14px; 
@@ -135,7 +171,7 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             }
 
             QPushButton:hover {
-                background: #72bd6c;
+                background: #8ac298;
             }
             """
         )
