@@ -21,28 +21,11 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QLineEdit" name="lineSearch"/>
-    </item>
-    <item row="0" column="7">
-     <widget class="QPushButton" name="btn_search">
-      <property name="text">
-       <string>Pesquisar</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="4">
-     <widget class="QToolButton" name="toolFilter">
-      <property name="text">
-       <string>Filtros</string>
-      </property>
-      <property name="popupMode">
-       <enum>QToolButton::MenuButtonPopup</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0" colspan="8">
+    <item row="1" column="0" colspan="9">
      <widget class="QTableWidget" name="table">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="gridStyle">
        <enum>Qt::SolidLine</enum>
       </property>
@@ -76,7 +59,119 @@
       <column/>
      </widget>
     </item>
-    <item row="2" column="7">
+    <item row="0" column="7">
+     <widget class="QToolButton" name="toolFilter">
+      <property name="styleSheet">
+       <string notr="true">QToolButton {
+                background: #76afcc; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 20px;
+				width: 100%;
+                padding: 0 15px;
+            }
+
+            QToolButton:hover {
+                background: #81b2eb;
+            }</string>
+      </property>
+      <property name="text">
+       <string>Filtros</string>
+      </property>
+      <property name="popupMode">
+       <enum>QToolButton::MenuButtonPopup</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="7">
+     <widget class="QLineEdit" name="lineSearch">
+      <property name="styleSheet">
+       <string notr="true">QLineEdit {
+                background: white;
+                height: 25px;
+                border: 1px solid #474747;
+                border-radius: 2px;
+                font-size: 14px;
+                font: sans-serif;
+            }
+            QLineEdit:focus {
+                border: 1px solid #23a5c2;
+            }</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QPushButton" name="btn_search">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                background: #3C8FBC; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 25px;
+                padding: 5rem;
+            }
+
+            QPushButton:hover {
+                background: #81b2eb;
+            }</string>
+      </property>
+      <property name="text">
+       <string>Pesquisar</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0" colspan="2">
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                background: #d16969; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+            }
+
+            QPushButton:hover {
+                background: #cf8686;
+            }</string>
+      </property>
+      <property name="text">
+       <string>Excluir</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QPushButton" name="pushButton">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                background: #3C8FBC; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+                padding: 0 5px;
+            }
+
+            QPushButton:hover {
+                background: #81b2eb;
+            }</string>
+      </property>
+      <property name="text">
+       <string>Editar</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="7" colspan="2">
      <widget class="QPushButton" name="btn_cad">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -102,12 +197,28 @@
         <height>0</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                background: #229440; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+                padding: 0 10px;
+            }
+
+            QPushButton:hover {
+                background: #8ac298;
+            }</string>
+      </property>
       <property name="text">
        <string>Cadastrar novo produto</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="4">
+    <item row="3" column="7" colspan="2">
      <widget class="QPushButton" name="btn_refresh">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
@@ -120,6 +231,22 @@
         <width>0</width>
         <height>0</height>
        </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                background: #3C8FBC; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+                padding: 0 5px;
+            }
+
+            QPushButton:hover {
+                background: #81b2eb;
+            }</string>
       </property>
       <property name="text">
        <string>Atualizar</string>
