@@ -10,14 +10,12 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from banco import Banco
-from cadastro import *
-from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
-from PyQt5.QtCore import Qt
+from cadastro import Ui_MainWindow2
 from PyQt5 import QtGui
 
 class Ui_MainWindow(object):
     def dados(self):
-        banco = Banco("./database/dados.db")
+        banco = Banco("./src/database/dados.db")
         self.result = banco.consulta("Produtos")
         self.collumn = len(self.result[0])
         self.row = len(self.result)
@@ -39,9 +37,9 @@ class Ui_MainWindow(object):
                 else:
                     self.item = QtWidgets.QTableWidgetItem(str(data))
                 if collumn_number == 0 or collumn_number == 2:
-                    self.item.setTextAlignment(Qt.AlignRight)
+                    self.item.setTextAlignment(QtCore.Qt.AlignRight)
                 else:
-                    self.item.setTextAlignment(Qt.AlignLeft)
+                    self.item.setTextAlignment(QtCore.Qt.AlignLeft)
                 self.table.setItem(row_number, collumn_number, self.item)
     
     def openCad(self):
