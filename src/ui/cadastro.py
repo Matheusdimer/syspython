@@ -9,34 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from banco import Banco
-from msg import *
 
 class Ui_MainWindow2(object):
-    def insert(self):
-        self.dados = [
-            self.linecod.text(),
-            self.linedesc.text(),
-            self.linevalor.text(),
-            self.linetipo.text()
-        ]
-        self.dados[2] = self.dados[2].replace(",", ".")
-        insere = Banco("./src/database/dados.db")
-        if insere.cadastro("Produtos", self.dados):
-            #self.labelinfo.setText(f"Produto {self.dados[0]:0>2}: {self.dados[1]} cadastrado com sucesso!")
-            self.msgInfo(f"Produto cadastrado com sucesso!")
-        else:
-            #self.labelinfo.setText("Erro ao cadastrar produto, verifique os campos.")
-            self.msgInfo("Erro ao cadastrar produto, verifique os campos.")
-
-    def msgInfo(self, text):
-        self.aviso = QtWidgets.QWidget()
-        self.interface = Ui_Form()
-        self.interface.setupUi(self.aviso)
-        self.aviso.show()
-        self.interface.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.interface.label.setText(text)
-        self.interface.bntExit.clicked.connect(self.aviso.close)
 
     def setupUi(self, MainWindow):
         self.css = "height: 25px; border: 1.2px solid #404040; background-color: white; border-radius: 5px; font: arial; font-size: 14px;"
@@ -80,47 +54,11 @@ class Ui_MainWindow2(object):
         self.label_2.setStyleSheet(self.csslabel)
         self.label_3.setStyleSheet(self.csslabel)
         self.label_4.setStyleSheet(self.csslabel)
-        #self.labelinfo = QtWidgets.QLabel()
-        #self.gridLayout.addWidget(self.labelinfo, 5, 0, 1, 2)
-        #self.labelinfo.setAlignment(Qt.AlignCenter)
         self.btn_confirm = QtWidgets.QPushButton(self.centralwidget)
         self.btn_confirm.setObjectName("btn_confirm")
-        self.btn_confirm.setStyleSheet("""
-            QPushButton {
-                background: #61AB6D; 
-                color: #fff; 
-                font: Times New Roman; 
-                font-size: 14px; 
-                font-weight: 700; 
-                border-radius: 5px; 
-                height: 30px;
-            }
-
-            QPushButton:hover {
-                background: #72bd6c;
-            }
-            """
-        )
         self.gridLayout.addWidget(self.btn_confirm, 5, 1, 1, 1)
-        self.btn_confirm.clicked.connect(self.insert)
         self.btn_cancel = QtWidgets.QPushButton(self.centralwidget)
         self.btn_cancel.setObjectName("btn_cancel")
-        self.btn_cancel.setStyleSheet("""
-            QPushButton {
-                background: #d16969; 
-                color: #fff; 
-                font: Times New Roman; 
-                font-size: 14px; 
-                font-weight: 700; 
-                border-radius: 5px; 
-                height: 30px;
-            }
-
-            QPushButton:hover {
-                background: #cf8686;
-            }
-            """
-        )
         self.gridLayout.addWidget(self.btn_cancel, 5, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
 
