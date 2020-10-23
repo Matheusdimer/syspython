@@ -14,12 +14,12 @@ class Ui_MainWindow2(object):
 
     def setupUi(self, MainWindow):
         self.css = "height: 25px; border: 1.2px solid #404040; background-color: white; border-radius: 5px; font: arial; font-size: 14px;"
-        self.csslabel = "font-size: 14px; font: arial; font-weight: 300"
+        self.csslabel = "color: #333333; font-size: 14px; font: arial; font-weight: 400"
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(350, 180)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.centralwidget.setStyleSheet("background-color: #c2e0ff")
+        self.centralwidget.setStyleSheet("background-color: #90b8d1")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
         self.linecod = QtWidgets.QLineEdit(self.centralwidget)

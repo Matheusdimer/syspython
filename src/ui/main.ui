@@ -19,136 +19,17 @@
   <property name="windowTitle">
    <string>Produtos</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>images/cadastro.svg</normalon>
+   </iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="0" colspan="9">
-     <widget class="QTableWidget" name="table">
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="gridStyle">
-       <enum>Qt::SolidLine</enum>
-      </property>
-      <property name="sortingEnabled">
-       <bool>false</bool>
-      </property>
-      <property name="rowCount">
-       <number>5</number>
-      </property>
-      <property name="columnCount">
-       <number>5</number>
-      </property>
-      <attribute name="horizontalHeaderVisible">
-       <bool>true</bool>
-      </attribute>
-      <attribute name="horizontalHeaderCascadingSectionResizes">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>150</number>
-      </attribute>
-      <row/>
-      <row/>
-      <row/>
-      <row/>
-      <row/>
-      <column/>
-      <column/>
-      <column/>
-      <column/>
-      <column/>
-     </widget>
-    </item>
-    <item row="0" column="7">
-     <widget class="QToolButton" name="toolFilter">
-      <property name="styleSheet">
-       <string notr="true">QToolButton {
-                background: #76afcc; 
-                color: #fff; 
-                font: Times New Roman; 
-                font-size: 12px; 
-                font-weight: 700; 
-                border-radius: 5px; 
-                height: 20px;
-				width: 100%;
-                padding: 0 15px;
-            }
-
-            QToolButton:hover {
-                background: #81b2eb;
-            }</string>
-      </property>
-      <property name="text">
-       <string>Filtros</string>
-      </property>
-      <property name="popupMode">
-       <enum>QToolButton::MenuButtonPopup</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" colspan="7">
-     <widget class="QLineEdit" name="lineSearch">
-      <property name="styleSheet">
-       <string notr="true">QLineEdit {
-                background: white;
-                height: 25px;
-                border: 1px solid #474747;
-                border-radius: 2px;
-                font-size: 14px;
-                font: sans-serif;
-            }
-            QLineEdit:focus {
-                border: 1px solid #23a5c2;
-            }</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="8">
-     <widget class="QPushButton" name="btn_search">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-                background: #3C8FBC; 
-                color: #fff; 
-                font: Times New Roman; 
-                font-size: 12px; 
-                font-weight: 700; 
-                border-radius: 5px; 
-                height: 25px;
-                padding: 5rem;
-            }
-
-            QPushButton:hover {
-                background: #81b2eb;
-            }</string>
-      </property>
-      <property name="text">
-       <string>Pesquisar</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0" colspan="2">
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-                background: #d16969; 
-                color: #fff; 
-                font: Times New Roman; 
-                font-size: 12px; 
-                font-weight: 700; 
-                border-radius: 5px; 
-                height: 30px;
-            }
-
-            QPushButton:hover {
-                background: #cf8686;
-            }</string>
-      </property>
-      <property name="text">
-       <string>Excluir</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="8">
+    <item row="4" column="2">
      <widget class="QPushButton" name="btn_cad">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -176,26 +57,37 @@
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-                background: #229440; 
+                background: #408552; 
                 color: #fff; 
                 font: Times New Roman; 
                 font-size: 12px; 
                 font-weight: 700; 
                 border-radius: 5px; 
                 height: 30px;
-                padding: 0 10px;
+				width: 150px;
             }
 
             QPushButton:hover {
-                background: #8ac298;
+                background: #4d945f;
             }</string>
       </property>
       <property name="text">
-       <string>Cadastrar novo produto</string>
+       <string>Novo produto</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normalon>images/add.svg</normalon>
+       </iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
       </property>
      </widget>
     </item>
-    <item row="3" column="8">
+    <item row="5" column="2">
      <widget class="QPushButton" name="btn_refresh">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
@@ -228,9 +120,14 @@
       <property name="text">
        <string>Atualizar</string>
       </property>
+      <property name="icon">
+       <iconset>
+        <normalon>images/refresh.svg</normalon>
+       </iconset>
+      </property>
      </widget>
     </item>
-    <item row="2" column="0" colspan="2">
+    <item row="4" column="0">
      <widget class="QPushButton" name="pushButton">
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -241,7 +138,7 @@
                 font-weight: 700; 
                 border-radius: 5px; 
                 height: 30px;
-                padding: 0 5px;
+				width: 150px;
             }
 
             QPushButton:hover {
@@ -251,7 +148,189 @@
       <property name="text">
        <string>Editar</string>
       </property>
+      <property name="icon">
+       <iconset>
+        <normalon>images/edit.svg</normalon>
+       </iconset>
+      </property>
      </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                background: #d16969; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+            }
+
+            QPushButton:hover {
+                background: #cf8686;
+            }</string>
+      </property>
+      <property name="text">
+       <string>Excluir</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normalon>images/delete.svg</normalon>
+       </iconset>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="3">
+     <layout class="QHBoxLayout" name="layoutSearch">
+      <item>
+       <widget class="QLineEdit" name="lineSearch">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+                background: white;
+                height: 25px;
+                border: 1px solid #474747;
+                border-radius: 2px;
+                font-size: 14px;
+                font: sans-serif;
+            }
+            QLineEdit:focus {
+                border: 1px solid #23a5c2;
+            }</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="toolFilter">
+        <property name="styleSheet">
+         <string notr="true">QToolButton {
+                background: #76afcc; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 20px;
+				width: 100%;
+                padding: 0 15px;
+            }
+
+            QToolButton:hover {
+                background: #81b2eb;
+            }</string>
+        </property>
+        <property name="text">
+         <string>Filtros</string>
+        </property>
+        <property name="popupMode">
+         <enum>QToolButton::MenuButtonPopup</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_search">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+                background: #3C8FBC; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 25px;
+				padding: 0 10px;
+            }
+
+            QPushButton:hover {
+                background: #81b2eb;
+            }</string>
+        </property>
+        <property name="text">
+         <string>Pesquisar</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normalon>images/search.svg</normalon>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="3" column="0" colspan="3">
+     <widget class="QTableWidget" name="table">
+      <property name="styleSheet">
+       <string notr="true">font: 11pt arial;
+color: #434343;
+font-weight: 450;
+alternate-background-color: rgb(232, 232, 232);
+
+</string>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="gridStyle">
+       <enum>Qt::SolidLine</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="rowCount">
+       <number>5</number>
+      </property>
+      <property name="columnCount">
+       <number>5</number>
+      </property>
+      <attribute name="horizontalHeaderVisible">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="horizontalHeaderCascadingSectionResizes">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>150</number>
+      </attribute>
+      <attribute name="horizontalHeaderHighlightSections">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderMinimumSectionSize">
+       <number>23</number>
+      </attribute>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <column/>
+      <column/>
+      <column/>
+      <column/>
+      <column/>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Expanding</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>

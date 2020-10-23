@@ -1,6 +1,6 @@
 from ui.main import Ui_MainWindow
 from ui.cadastro import Ui_MainWindow2
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 from banco import Banco
 from ui.msg import Ui_Form
 import sys
@@ -10,7 +10,18 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         super().__init__(parent)
         super().setupUi(self)
         self.btn_cad.clicked.connect(self.openCad)
-
+        self.table.horizontalHeader().setStyleSheet(
+        """
+        QHeaderView::section {
+            background-color: #2e85db; 
+            font: 14px arial; 
+            font-weight: 600; 
+            color: white; 
+            border: none; 
+            border-right: 1px solid #949494
+        }
+        """
+        )
         self.filter = "CODIGO"
         self.toolFilter.setText("Filtro: Código")
 
@@ -33,7 +44,17 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.table.verticalHeader().setVisible(False)
         self.dados()
-    
+        self.resizeColumns()
+
+    def resizeColumns(self):
+        self.table.setColumnWidth(0, self.width() * (10/100))
+        self.table.setColumnWidth(1, self.width() * (40/100))
+        self.table.setColumnWidth(2, self.width() * (20/100))
+        self.table.setColumnWidth(3, self.width() * (30/100) - 37)
+
+    def resizeEvent(self, QResizeEvent):
+        self.resizeColumns()
+
     def dados(self, coluna="", busca=""):
         banco = Banco("./src/database/dados.db")
         self.result = banco.consulta("Produtos", pesquisa=busca, campo=coluna)
@@ -43,10 +64,6 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.table.setRowCount(0)
             self.table.setColumnCount(self.collumn)
             self.table.setHorizontalHeaderLabels(["Código", "Descrição", "Valor Unitário", "Tipo"])
-            self.table.setColumnWidth(0, 60)
-            self.table.setColumnWidth(1, 380)
-            self.table.setColumnWidth(2, 120)
-            self.table.setColumnWidth(3, 200)
             for row_number, row_data in enumerate(self.result):
                 self.table.insertRow(row_number)
                 for collumn_number, data in enumerate(row_data):
@@ -80,7 +97,7 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.ui.btn_confirm.setStyleSheet("""
             QPushButton {
-                background: #229440; 
+                background: #408552; 
                 color: #fff; 
                 font: Times New Roman; 
                 font-size: 14px; 
@@ -90,7 +107,7 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             }
 
             QPushButton:hover {
-                background: #8ac298;
+                background: #4d945f;
             }
             """
         )
@@ -114,10 +131,10 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def insert(self):
         self.data = [
-            self.linecod.text(),
-            self.linedesc.text(),
-            self.linevalor.text(),
-            self.linetipo.text()
+            self.ui.linecod.text(),
+            self.ui.linedesc.text(),
+            self.ui.linevalor.text(),
+            self.ui.linetipo.text()
         ]
         self.data[2] = self.data[2].replace(",", ".")
         insere = Banco("./src/database/dados.db")
