@@ -100,23 +100,6 @@ class Ui_MainWindow(object):
 "            }")
         self.pushButton_2.setObjectName("pushButton_2")
         self.gridLayout.addWidget(self.pushButton_2, 3, 0, 1, 2)
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setStyleSheet("QPushButton {\n"
-"                background: #3C8FBC; \n"
-"                color: #fff; \n"
-"                font: Times New Roman; \n"
-"                font-size: 12px; \n"
-"                font-weight: 700; \n"
-"                border-radius: 5px; \n"
-"                height: 30px;\n"
-"                padding: 0 5px;\n"
-"            }\n"
-"\n"
-"            QPushButton:hover {\n"
-"                background: #81b2eb;\n"
-"            }")
-        self.pushButton.setObjectName("pushButton")
-        self.gridLayout.addWidget(self.pushButton, 2, 0, 1, 2)
         self.btn_cad = QtWidgets.QPushButton(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -141,7 +124,7 @@ class Ui_MainWindow(object):
 "                background: #8ac298;\n"
 "            }")
         self.btn_cad.setObjectName("btn_cad")
-        self.gridLayout.addWidget(self.btn_cad, 2, 7, 1, 2)
+        self.gridLayout.addWidget(self.btn_cad, 2, 8, 1, 1)
         self.btn_refresh = QtWidgets.QPushButton(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Ignored, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -164,7 +147,24 @@ class Ui_MainWindow(object):
 "                background: #81b2eb;\n"
 "            }")
         self.btn_refresh.setObjectName("btn_refresh")
-        self.gridLayout.addWidget(self.btn_refresh, 3, 7, 1, 2)
+        self.gridLayout.addWidget(self.btn_refresh, 3, 8, 1, 1)
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setStyleSheet("QPushButton {\n"
+"                background: #3C8FBC; \n"
+"                color: #fff; \n"
+"                font: Times New Roman; \n"
+"                font-size: 12px; \n"
+"                font-weight: 700; \n"
+"                border-radius: 5px; \n"
+"                height: 30px;\n"
+"                padding: 0 5px;\n"
+"            }\n"
+"\n"
+"            QPushButton:hover {\n"
+"                background: #81b2eb;\n"
+"            }")
+        self.pushButton.setObjectName("pushButton")
+        self.gridLayout.addWidget(self.pushButton, 2, 0, 1, 2)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -177,6 +177,6 @@ class Ui_MainWindow(object):
         self.toolFilter.setText(_translate("MainWindow", "Filtros"))
         self.btn_search.setText(_translate("MainWindow", "Pesquisar"))
         self.pushButton_2.setText(_translate("MainWindow", "Excluir"))
-        self.pushButton.setText(_translate("MainWindow", "Editar"))
         self.btn_cad.setText(_translate("MainWindow", "Cadastrar novo produto"))
         self.btn_refresh.setText(_translate("MainWindow", "Atualizar"))
+        self.pushButton.setText(_translate("MainWindow", "Editar"))

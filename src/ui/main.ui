@@ -148,30 +148,7 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0" colspan="2">
-     <widget class="QPushButton" name="pushButton">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-                background: #3C8FBC; 
-                color: #fff; 
-                font: Times New Roman; 
-                font-size: 12px; 
-                font-weight: 700; 
-                border-radius: 5px; 
-                height: 30px;
-                padding: 0 5px;
-            }
-
-            QPushButton:hover {
-                background: #81b2eb;
-            }</string>
-      </property>
-      <property name="text">
-       <string>Editar</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="7" colspan="2">
+    <item row="2" column="8">
      <widget class="QPushButton" name="btn_cad">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -218,7 +195,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="7" colspan="2">
+    <item row="3" column="8">
      <widget class="QPushButton" name="btn_refresh">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
@@ -250,6 +227,29 @@
       </property>
       <property name="text">
        <string>Atualizar</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QPushButton" name="pushButton">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                background: #3C8FBC; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+                padding: 0 5px;
+            }
+
+            QPushButton:hover {
+                background: #81b2eb;
+            }</string>
+      </property>
+      <property name="text">
+       <string>Editar</string>
       </property>
      </widget>
     </item>
