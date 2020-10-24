@@ -61,7 +61,39 @@ class Ui_MainWindow2(object):
         self.btn_cancel.setObjectName("btn_cancel")
         self.gridLayout.addWidget(self.btn_cancel, 5, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
+        self.btn_confirm.setStyleSheet("""
+            QPushButton {
+                background: #408552; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 14px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+            }
 
+            QPushButton:hover {
+                background: #4d945f;
+            }
+            """
+        )
+
+        self.btn_cancel.setStyleSheet("""
+            QPushButton {
+                background: #d16969; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 14px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+            }
+
+            QPushButton:hover {
+                background: #cf8686;
+            }
+            """
+        )
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 

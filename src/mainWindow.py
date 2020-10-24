@@ -71,7 +71,6 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             for row_number, row_data in enumerate(self.result):
                 self.table.insertRow(row_number)
                 for collumn_number, data in enumerate(row_data):
-                    
                     if collumn_number == 2:
                         valor = (f"R$ {data:.2f}")
                         self.item = QtWidgets.QTableWidgetItem(str(valor).replace(".", ","))
@@ -99,39 +98,15 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.window.setWindowTitle("Cadastro de novo Produto")
         self.ui.btn_confirm.clicked.connect(self.insert)
 
-        self.ui.btn_confirm.setStyleSheet("""
-            QPushButton {
-                background: #408552; 
-                color: #fff; 
-                font: Times New Roman; 
-                font-size: 14px; 
-                font-weight: 700; 
-                border-radius: 5px; 
-                height: 30px;
-            }
-
-            QPushButton:hover {
-                background: #4d945f;
-            }
-            """
-        )
-
-        self.ui.btn_cancel.setStyleSheet("""
-            QPushButton {
-                background: #d16969; 
-                color: #fff; 
-                font: Times New Roman; 
-                font-size: 14px; 
-                font-weight: 700; 
-                border-radius: 5px; 
-                height: 30px;
-            }
-
-            QPushButton:hover {
-                background: #cf8686;
-            }
-            """
-        )
+    def openEdit(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow2()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.window.setWindowTitle("Editar produto existente")
+        self.ui.btn_confirm.setText("Editar produto")
+        self.ui.btn_confirm.clicked.connect(self.editReg)
+        self.ui.btn_cancel.clicked.connect(self.window.close)
 
     def insert(self):
         self.data = [
@@ -144,6 +119,7 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.banco.cadastro("Produtos", self.data):
             #self.labelinfo.setText(f"Produto {self.dados[0]:0>2}: {self.dados[1]} cadastrado com sucesso!")
             self.msgInfo(f"Produto cadastrado com sucesso!")
+            self.dados()
         else:
             #self.labelinfo.setText("Erro ao cadastrar produto, verifique os campos.")
             self.msgInfo("Erro ao cadastrar produto, verifique os campos.")
@@ -154,9 +130,33 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def edit(self):
         indexes = self.table.selectedIndexes()
+        self.data = []
         for index in sorted(indexes):
-            data = index.data()
-            print(data)
+            self.data.append(index.data())
+        if len(self.data) > 0:
+            self.openEdit()
+            self.data[2] = self.data[2].replace("R$ ", "")
+            self.ui.linecod.setText(self.data[0])
+            self.ui.linedesc.setText(self.data[1])
+            self.ui.linevalor.setText(self.data[2])
+            self.ui.linetipo.setText(self.data[3])
+            self.ui.linecod.setDisabled(True)
+        else:
+            self.msgInfo("Nenhuma linha selecionada")
+
+    def editReg(self):
+        campo_dado = [
+            ["CODIGO", self.ui.linecod.text()],
+            ["DESCRICAO", self.ui.linedesc.text()],
+            ["VALOR_UNIT", self.ui.linevalor.text().replace(",", ".")],
+            ["TIPO", self.ui.linetipo.text()]
+        ]
+        if self.banco.update("Produtos", self.data[0], campo_dado):
+            self.msgInfo("Produto alterado com sucesso!")
+            self.window.close()
+            self.dados()
+        else:
+            self.msgInfo("Erro ao alterar registro.")
 
     def delete(self):
         indexes = self.table.selectedIndexes()
