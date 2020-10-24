@@ -37,3 +37,28 @@ class Banco:
         result = self.c.execute(query)
         self.conn.commit()
         return result.fetchall()
+
+    def update(self, tabela, registro, campo_valores):
+        upd = f"UPDATE {tabela} SET "
+        for campo in campo_valores:
+            upd += f"{campo[0]} = '{campo[1]}'"
+            if not campo[0] == campo_valores[-1][0]:
+                upd += ", "
+        
+        upd += f" WHERE CODIGO = {registro}"
+        try:
+            self.c.execute(upd)
+            self.conn.commit()
+            return True
+        except:
+            return False
+
+    def delete(self, tabela, registro):
+        delet = f"DELETE FROM {tabela} WHERE CODIGO = {registro}"
+        try:
+            self.c.execute(delet)
+            self.conn.commit()
+            return True
+        except:
+            return False
+        

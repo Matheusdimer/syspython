@@ -83,8 +83,8 @@ class Ui_MainWindow(object):
         self.btn_refresh.setIcon(icon2)
         self.btn_refresh.setObjectName("btn_refresh")
         self.gridLayout.addWidget(self.btn_refresh, 5, 2, 1, 1)
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setStyleSheet("QPushButton {\n"
+        self.btn_edit = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_edit.setStyleSheet("QPushButton {\n"
 "                background: #3C8FBC; \n"
 "                color: #fff; \n"
 "                font: Times New Roman; \n"
@@ -100,11 +100,11 @@ class Ui_MainWindow(object):
 "            }")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("./src/ui/images/edit.svg"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.pushButton.setIcon(icon3)
-        self.pushButton.setObjectName("pushButton")
-        self.gridLayout.addWidget(self.pushButton, 4, 0, 1, 1)
-        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setStyleSheet("QPushButton {\n"
+        self.btn_edit.setIcon(icon3)
+        self.btn_edit.setObjectName("btn_edit")
+        self.gridLayout.addWidget(self.btn_edit, 4, 0, 1, 1)
+        self.btn_delete = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_delete.setStyleSheet("QPushButton {\n"
 "                background: #d16969; \n"
 "                color: #fff; \n"
 "                font: Times New Roman; \n"
@@ -119,9 +119,9 @@ class Ui_MainWindow(object):
 "            }")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("./src/ui/images/delete.svg"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.pushButton_2.setIcon(icon4)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.gridLayout.addWidget(self.pushButton_2, 5, 0, 1, 1)
+        self.btn_delete.setIcon(icon4)
+        self.btn_delete.setObjectName("btn_delete")
+        self.gridLayout.addWidget(self.btn_delete, 5, 0, 1, 1)
         self.layoutSearch = QtWidgets.QHBoxLayout()
         self.layoutSearch.setObjectName("layoutSearch")
         self.lineSearch = QtWidgets.QLineEdit(self.centralwidget)
@@ -201,17 +201,17 @@ class Ui_MainWindow(object):
         spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem, 4, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
-
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Produtos"))
         self.btn_cad.setText(_translate("MainWindow", "Novo produto"))
         self.btn_refresh.setText(_translate("MainWindow", "Atualizar"))
-        self.pushButton.setText(_translate("MainWindow", "Editar"))
-        self.pushButton_2.setText(_translate("MainWindow", "Excluir"))
+        self.btn_edit.setText(_translate("MainWindow", "Editar"))
+        self.btn_delete.setText(_translate("MainWindow", "Excluir"))
         self.toolFilter.setText(_translate("MainWindow", "Filtros"))
         self.btn_search.setText(_translate("MainWindow", "Pesquisar"))
         self.table.setSortingEnabled(False)

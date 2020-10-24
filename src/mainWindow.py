@@ -1,15 +1,18 @@
-from ui.main import Ui_MainWindow
-from ui.cadastro import Ui_MainWindow2
+from src.ui.main import Ui_MainWindow
+from src.ui.cadastro import Ui_MainWindow2
 from PyQt5 import QtWidgets, QtCore, QtGui
-from banco import Banco
-from ui.msg import Ui_Form
+from src.banco import Banco
+from src.ui.msg import Ui_Form
 import sys
 
 class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         super().setupUi(self)
+        self.banco = Banco("./src/database/dados.db")
         self.btn_cad.clicked.connect(self.openCad)
+        self.btn_edit.clicked.connect(self.edit)
+        self.btn_delete.clicked.connect(self.delete)
         self.table.horizontalHeader().setStyleSheet(
         """
         QHeaderView::section {
@@ -22,6 +25,8 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         }
         """
         )
+        self.table.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+
         self.filter = "CODIGO"
         self.toolFilter.setText("Filtro: Código")
 
@@ -56,8 +61,7 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.resizeColumns()
 
     def dados(self, coluna="", busca=""):
-        banco = Banco("./src/database/dados.db")
-        self.result = banco.consulta("Produtos", pesquisa=busca, campo=coluna)
+        self.result = self.banco.consulta("Produtos", pesquisa=busca, campo=coluna)
         self.row = len(self.result)
         if self.row > 0:
             self.collumn = len(self.result[0])
@@ -137,8 +141,7 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.ui.linetipo.text()
         ]
         self.data[2] = self.data[2].replace(",", ".")
-        insere = Banco("./src/database/dados.db")
-        if insere.cadastro("Produtos", self.data):
+        if self.banco.cadastro("Produtos", self.data):
             #self.labelinfo.setText(f"Produto {self.dados[0]:0>2}: {self.dados[1]} cadastrado com sucesso!")
             self.msgInfo(f"Produto cadastrado com sucesso!")
         else:
@@ -148,6 +151,21 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def search(self):
         self.lineBusca = self.lineSearch.text()
         self.dados(busca=self.lineBusca, coluna=self.filter)
+
+    def edit(self):
+        indexes = self.table.selectedIndexes()
+        for index in sorted(indexes):
+            data = index.data()
+            print(data)
+
+    def delete(self):
+        indexes = self.table.selectedIndexes()
+        codigo = indexes[0].data()
+        if self.banco.delete("Produtos", codigo):
+            self.msgInfo(f"Produto {codigo} deletado com sucesso!")
+            self.dados()
+        else:
+            self.msgInfo("Erro ao tentar deletar registro.")
 
     def setFilterTipo(self):
         self.toolFilter.setText("Filtro: Tipo")

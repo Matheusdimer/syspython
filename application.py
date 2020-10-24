@@ -1,4 +1,4 @@
-from mainWindow import mainWindow
+from src.mainWindow import mainWindow
 from PyQt5 import QtWidgets
 
 if __name__ == "__main__":
