@@ -142,7 +142,7 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.ui.linetipo.setText(self.data[3])
             self.ui.linecod.setDisabled(True)
         else:
-            self.msgInfo("Nenhuma linha selecionada")
+            self.msgInfo("Nenhuma linha selecionada!")
 
     def editReg(self):
         campo_dado = [
@@ -160,12 +160,18 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def delete(self):
         indexes = self.table.selectedIndexes()
-        codigo = indexes[0].data()
-        if self.banco.delete("Produtos", codigo):
-            self.msgInfo(f"Produto {codigo} deletado com sucesso!")
-            self.dados()
+        if len(indexes) > 0:
+            if len(indexes) == 1:
+                codigo = indexes[0].data()
+                if self.banco.delete("Produtos", codigo):
+                    self.msgInfo(f"Produto {codigo} deletado com sucesso!")
+                    self.dados()
+                else:
+                    self.msgInfo("Erro ao tentar deletar registro.")
+            else:
+                self.msgInfo("Selecione apenas uma linha por vez.")
         else:
-            self.msgInfo("Erro ao tentar deletar registro.")
+            self.msgInfo("Nenhuma linha selecionada!")
 
     def setFilterTipo(self):
         self.toolFilter.setText("Filtro: Tipo")
