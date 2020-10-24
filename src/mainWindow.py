@@ -3,6 +3,7 @@ from src.ui.cadastro import Ui_MainWindow2
 from PyQt5 import QtWidgets, QtCore, QtGui
 from src.banco import Banco
 from src.ui.msg import Ui_Form
+from src.ui.msgYesNo import Ui_Msg
 import sys
 
 class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -161,17 +162,21 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def delete(self):
         indexes = self.table.selectedIndexes()
         if len(indexes) > 0:
-            if len(indexes) == 1:
-                codigo = indexes[0].data()
-                if self.banco.delete("Produtos", codigo):
-                    self.msgInfo(f"Produto {codigo} deletado com sucesso!")
-                    self.dados()
-                else:
-                    self.msgInfo("Erro ao tentar deletar registro.")
+            if len(indexes) == 4:
+                self.codigo = indexes[0].data()
+                self.msgYesNo(f"Deseja realmente excluir o produto {self.codigo}?")
             else:
                 self.msgInfo("Selecione apenas uma linha por vez.")
         else:
             self.msgInfo("Nenhuma linha selecionada!")
+
+    def delRegis(self):
+        if self.banco.delete("Produtos", self.codigo):
+            self.msgInfo(f"Produto {self.codigo} deletado com sucesso!")
+            self.dados()
+            self.yesNo_window.close()
+        else:
+            self.msgInfo("Erro ao tentar deletar registro.")
 
     def setFilterTipo(self):
         self.toolFilter.setText("Filtro: Tipo")
@@ -194,3 +199,14 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.interface.label.setAlignment(QtCore.Qt.AlignCenter)
         self.interface.label.setText(text)
         self.interface.bntExit.clicked.connect(self.aviso.close)
+
+    def msgYesNo(self, texto):
+        self.yesNo_window = QtWidgets.QWidget()
+        self.uiYesNo = Ui_Msg()
+        self.uiYesNo.setupUi(self.yesNo_window)
+        self.uiYesNo.label.setText(texto)
+        self.yesNo_window.show()
+        self.uiYesNo.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.uiYesNo.btn_no.clicked.connect(self.yesNo_window.close)
+        self.uiYesNo.btn_yes.clicked.connect(self.delRegis)
+        

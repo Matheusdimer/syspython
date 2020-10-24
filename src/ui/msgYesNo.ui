@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Msg</class>
+ <widget class="QWidget" name="Msg">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>527</width>
+    <height>185</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Aviso</string>
+  </property>
+  <widget class="QPushButton" name="btn_no">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>130</y>
+     <width>90</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background: #c73a41;
+	border-radius: 5px;
+	color: white;
+	font-size: 12px;
+}
+QPushButton:hover{
+	background: #bf565b;
+}</string>
+   </property>
+   <property name="text">
+    <string>Não</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_yes">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>130</y>
+     <width>90</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background: #3dbf5c;
+	border-radius: 5px;
+	color: white;
+	font-size: 12px;
+}
+QPushButton:hover{
+	background: #91dba8;
+}</string>
+   </property>
+   <property name="text">
+    <string>Sim</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>60</y>
+     <width>431</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 14px;
+text-align: center;
+</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
