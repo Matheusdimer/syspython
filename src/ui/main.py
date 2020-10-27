@@ -143,7 +143,7 @@ class Ui_MainWindow(object):
 "                background: #76afcc; \n"
 "                color: #fff; \n"
 "                font: Times New Roman; \n"
-"                font-size: 12px; \n"
+"                font-size: 11px; \n"
 "                font-weight: 700; \n"
 "                border-radius: 5px; \n"
 "                height: 20px;\n"
