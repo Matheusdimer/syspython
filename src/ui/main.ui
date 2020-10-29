@@ -88,7 +88,7 @@
      </widget>
     </item>
     <item row="5" column="2">
-     <widget class="QPushButton" name="btn_refresh">
+     <widget class="QPushButton" name="btn_sale">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -118,17 +118,23 @@
             }</string>
       </property>
       <property name="text">
-       <string>Atualizar</string>
+       <string>Nova venda</string>
       </property>
       <property name="icon">
        <iconset>
-        <normalon>images/refresh.svg</normalon>
+        <normalon>images/sale.svg</normalon>
        </iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
       </property>
      </widget>
     </item>
     <item row="4" column="0">
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="btn_edit">
       <property name="styleSheet">
        <string notr="true">QPushButton {
                 background: #3C8FBC; 
@@ -156,7 +162,7 @@
      </widget>
     </item>
     <item row="5" column="0">
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="btn_delete">
       <property name="styleSheet">
        <string notr="true">QPushButton {
                 background: #d16969; 
@@ -274,6 +280,12 @@ alternate-background-color: rgb(232, 232, 232);
       <property name="alternatingRowColors">
        <bool>true</bool>
       </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
       <property name="gridStyle">
        <enum>Qt::SolidLine</enum>
       </property>
@@ -284,7 +296,7 @@ alternate-background-color: rgb(232, 232, 232);
        <number>5</number>
       </property>
       <property name="columnCount">
-       <number>5</number>
+       <number>4</number>
       </property>
       <attribute name="horizontalHeaderVisible">
        <bool>true</bool>
@@ -309,11 +321,26 @@ alternate-background-color: rgb(232, 232, 232);
       <row/>
       <row/>
       <row/>
-      <column/>
-      <column/>
-      <column/>
-      <column/>
-      <column/>
+      <column>
+       <property name="text">
+        <string>Código</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Descrição</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Valor Unit.</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Tipo</string>
+       </property>
+      </column>
      </widget>
     </item>
     <item row="4" column="1">

@@ -4,6 +4,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from src.banco import Banco
 from src.ui.msg import Ui_Form
 from src.ui.msgYesNo import Ui_Msg
+from src.ui.venda import Ui_form_venda
 import sys
 
 class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -46,7 +47,7 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.table.setHorizontalHeaderLabels(["Código", "Descrição", "Valor Unitário", "Tipo"])
 
         self.btn_search.clicked.connect(self.search)
-        self.btn_refresh.clicked.connect(self.dados)
+        self.btn_sale.clicked.connect(self.newSale)
 
         self.table.verticalHeader().setVisible(False)
         self.dados()
@@ -98,6 +99,26 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ui.btn_cancel.clicked.connect(self.window.close)
         self.window.setWindowTitle("Cadastro de novo Produto")
         self.ui.btn_confirm.clicked.connect(self.insert)
+
+    def newSale(self):
+        self.rows = 1
+        self.saleWindow = QtWidgets.QWidget()
+        self.uiSale = Ui_form_venda()
+        self.uiSale.setupUi(self.saleWindow)
+        self.saleWindow.show()
+        self.uiSale.btn_cancel.clicked.connect(self.saleWindow.close)
+        self.uiSale.tableWidget.setRowCount(self.rows)
+        self.uiSale.btn_add.clicked.connect(self.newLine)
+        self.uiSale.pushButton.clicked.connect(self.deletLine)
+
+    def newLine(self):
+        self.rows += 1
+        self.uiSale.tableWidget.setRowCount(self.rows)
+
+    def deletLine(self):
+        index = self.uiSale.tableWidget.selectedIndexes()[0]
+        self.uiSale.tableWidget.removeRow(index.row())
+        self.rows -= 1
 
     def openEdit(self):
         self.window = QtWidgets.QMainWindow()

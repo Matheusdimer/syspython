@@ -57,14 +57,14 @@ class Ui_MainWindow(object):
         self.btn_cad.setIconSize(QtCore.QSize(18, 18))
         self.btn_cad.setObjectName("btn_cad")
         self.gridLayout.addWidget(self.btn_cad, 4, 2, 1, 1)
-        self.btn_refresh = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_sale = QtWidgets.QPushButton(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Ignored, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_refresh.sizePolicy().hasHeightForWidth())
-        self.btn_refresh.setSizePolicy(sizePolicy)
-        self.btn_refresh.setSizeIncrement(QtCore.QSize(0, 0))
-        self.btn_refresh.setStyleSheet("QPushButton {\n"
+        sizePolicy.setHeightForWidth(self.btn_sale.sizePolicy().hasHeightForWidth())
+        self.btn_sale.setSizePolicy(sizePolicy)
+        self.btn_sale.setSizeIncrement(QtCore.QSize(0, 0))
+        self.btn_sale.setStyleSheet("QPushButton {\n"
 "                background: #3C8FBC; \n"
 "                color: #fff; \n"
 "                font: Times New Roman; \n"
@@ -79,10 +79,11 @@ class Ui_MainWindow(object):
 "                background: #81b2eb;\n"
 "            }")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("./src/ui/images/refresh.svg"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.btn_refresh.setIcon(icon2)
-        self.btn_refresh.setObjectName("btn_refresh")
-        self.gridLayout.addWidget(self.btn_refresh, 5, 2, 1, 1)
+        icon2.addPixmap(QtGui.QPixmap("./src/ui/images/sale.svg"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.btn_sale.setIcon(icon2)
+        self.btn_sale.setIconSize(QtCore.QSize(20, 20))
+        self.btn_sale.setObjectName("btn_sale")
+        self.gridLayout.addWidget(self.btn_sale, 5, 2, 1, 1)
         self.btn_edit = QtWidgets.QPushButton(self.centralwidget)
         self.btn_edit.setStyleSheet("QPushButton {\n"
 "                background: #3C8FBC; \n"
@@ -143,7 +144,7 @@ class Ui_MainWindow(object):
 "                background: #76afcc; \n"
 "                color: #fff; \n"
 "                font: Times New Roman; \n"
-"                font-size: 11px; \n"
+"                font-size: 12px; \n"
 "                font-weight: 700; \n"
 "                border-radius: 5px; \n"
 "                height: 20px;\n"
@@ -187,10 +188,20 @@ class Ui_MainWindow(object):
 "")
         self.table.setLineWidth(1)
         self.table.setAlternatingRowColors(True)
+        self.table.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.table.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.table.setGridStyle(QtCore.Qt.SolidLine)
         self.table.setRowCount(5)
-        self.table.setColumnCount(5)
+        self.table.setColumnCount(4)
         self.table.setObjectName("table")
+        item = QtWidgets.QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(3, item)
         self.table.horizontalHeader().setVisible(True)
         self.table.horizontalHeader().setCascadingSectionResizes(False)
         self.table.horizontalHeader().setDefaultSectionSize(150)
@@ -201,17 +212,25 @@ class Ui_MainWindow(object):
         spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem, 4, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Produtos"))
         self.btn_cad.setText(_translate("MainWindow", "Novo produto"))
-        self.btn_refresh.setText(_translate("MainWindow", "Atualizar"))
+        self.btn_sale.setText(_translate("MainWindow", "Nova venda"))
         self.btn_edit.setText(_translate("MainWindow", "Editar"))
         self.btn_delete.setText(_translate("MainWindow", "Excluir"))
         self.toolFilter.setText(_translate("MainWindow", "Filtros"))
         self.btn_search.setText(_translate("MainWindow", "Pesquisar"))
         self.table.setSortingEnabled(False)
+        item = self.table.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Código"))
+        item = self.table.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Descrição"))
+        item = self.table.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Valor Unit."))
+        item = self.table.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Tipo"))

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>form_venda</class>
+ <widget class="QWidget" name="form_venda">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>870</width>
+    <height>630</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Nova venda</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="btn_add">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+                background: #3C8FBC; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+				width: 150px;
+            }
+
+            QPushButton:hover {
+                background: #81b2eb;
+            }</string>
+       </property>
+       <property name="text">
+        <string>Adicionar produto</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+                background: #d16969; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+            }
+
+            QPushButton:hover {
+                background: #cf8686;
+            }</string>
+       </property>
+       <property name="text">
+        <string>Excluir produto da venda</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="6" column="0">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="1" column="2">
+      <widget class="QPushButton" name="btn_finish">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+                background: #408552; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+				width: 122px;
+            }
+
+            QPushButton:hover {
+                background: #4d945f;
+            }</string>
+       </property>
+       <property name="text">
+        <string>Finalizar venda</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="btn_cancel">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+                background: #d16969; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+				width: 122px;
+            }
+
+            QPushButton:hover {
+                background: #cf8686;
+            }</string>
+       </property>
+       <property name="text">
+        <string>Cancelar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="5" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>650</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">font-size: 12pt
+</string>
+       </property>
+       <property name="text">
+        <string>Total: R$</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="line_total">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+                background: white;
+                height: 25px;
+                border: 1px solid #474747;
+                border-radius: 2px;
+                font-size: 14px;
+                font: sans-serif;
+				width: 120px;
+            }
+            QLineEdit:focus {
+                border: 1px solid #23a5c2;
+            }</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="4" column="0">
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="styleSheet">
+      <string notr="true">font: 11pt arial;
+color: #434343;
+font-weight: 450;
+alternate-background-color: rgb(232, 232, 232);
+
+</string>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::SolidLine</enum>
+     </property>
+     <property name="rowCount">
+      <number>10</number>
+     </property>
+     <property name="columnCount">
+      <number>5</number>
+     </property>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>166</number>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <column>
+      <property name="text">
+       <string>Código</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Descrição</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Preço Unit.</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Quantidade</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Total</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

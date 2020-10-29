@@ -30,13 +30,13 @@ class Ui_Msg(object):
         self.btn_yes = QtWidgets.QPushButton(Msg)
         self.btn_yes.setGeometry(QtCore.QRect(290, 130, 90, 28))
         self.btn_yes.setStyleSheet("QPushButton{\n"
-"    background: #3dbf5c;\n"
+"    background: #408552;\n"
 "    border-radius: 5px;\n"
 "    color: white;\n"
 "    font-size: 12px;\n"
 "}\n"
 "QPushButton:hover{\n"
-"    background: #91dba8;\n"
+"    background: #4d945f;\n"
 "}")
         self.btn_yes.setObjectName("btn_yes")
         self.label = QtWidgets.QLabel(Msg)
