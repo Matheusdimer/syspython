@@ -82,9 +82,9 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     else:
                         self.item = QtWidgets.QTableWidgetItem(str(data))
                     if collumn_number == 0 or collumn_number == 2:
-                        self.item.setTextAlignment(QtCore.Qt.AlignRight)
+                        self.item.setTextAlignment(QtCore.Qt.AlignRight + QtCore.Qt.AlignVCenter)
                     else:
-                        self.item.setTextAlignment(QtCore.Qt.AlignLeft)
+                        self.item.setTextAlignment(QtCore.Qt.AlignLeft + QtCore.Qt.AlignVCenter)
                     self.table.setItem(row_number, collumn_number, self.item)
         else:
             self.table.setRowCount(0)
@@ -124,6 +124,14 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         }
         """
         )
+        self.resizeColumns_sale()
+
+    def resizeColumns_sale(self):
+        self.uiSale.tableWidget.setColumnWidth(0, self.width() * (15/100))
+        self.uiSale.tableWidget.setColumnWidth(1, self.width() * (31/100))
+        self.uiSale.tableWidget.setColumnWidth(2, self.width() * (15/100))
+        self.uiSale.tableWidget.setColumnWidth(3, self.width() * (15/100))
+        self.uiSale.tableWidget.setColumnWidth(4, self.width() * (15/100) + 5)
 
     def newLine(self):
         self.rows += 1
@@ -141,13 +149,13 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             data = self.banco.consulta("Produtos", campo="CODIGO", pesquisa=index)
             if data:
                 item = QtWidgets.QTableWidgetItem(f"{data[0][0]:0>4}")
-                item.setTextAlignment(QtCore.Qt.AlignRight)
+                item.setTextAlignment(QtCore.Qt.AlignRight + QtCore.Qt.AlignVCenter)
                 self.uiSale.tableWidget.setItem(n, 0, item)
                 item = QtWidgets.QTableWidgetItem(str(data[0][1]))
-                item.setTextAlignment(QtCore.Qt.AlignTop)
+                item.setTextAlignment(QtCore.Qt.AlignVCenter)
                 self.uiSale.tableWidget.setItem(n, 1, item)
                 item = QtWidgets.QTableWidgetItem(f"{data[0][2]:.2f}")
-                item.setTextAlignment(QtCore.Qt.AlignRight)
+                item.setTextAlignment(QtCore.Qt.AlignRight + QtCore.Qt.AlignVCenter)
                 self.uiSale.tableWidget.setItem(n, 2, item)
             else:
                 self.msgInfo(f"Não há produto com o código {index:0>4}")
@@ -170,10 +178,10 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             total_linha = float(preco) * float(quant)
             total += total_linha
             quant = QtWidgets.QTableWidgetItem(quant)
-            quant.setTextAlignment(QtCore.Qt.AlignRight)
+            quant.setTextAlignment(QtCore.Qt.AlignRight + QtCore.Qt.AlignVCenter)
             self.uiSale.tableWidget.setItem(n, 3, quant)
             total_linha = QtWidgets.QTableWidgetItem(f"{total_linha:.2f}")
-            total_linha.setTextAlignment(QtCore.Qt.AlignRight)
+            total_linha.setTextAlignment(QtCore.Qt.AlignRight + QtCore.Qt.AlignVCenter)
             self.uiSale.tableWidget.setItem(n, 4, total_linha)
 
         self.uiSale.line_total.setText(f"{total:.2f}")

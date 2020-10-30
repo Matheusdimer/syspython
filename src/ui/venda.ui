@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>864</width>
-    <height>632</height>
+    <width>939</width>
+    <height>732</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,92 +15,16 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QPushButton" name="btn_add">
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-                background: #3C8FBC; 
-                color: #fff; 
-                font: Times New Roman; 
-                font-size: 12px; 
-                font-weight: 700; 
-                border-radius: 5px; 
-                height: 30px;
-				width: 150px;
-            }
-
-            QPushButton:hover {
-                background: #81b2eb;
-            }</string>
-       </property>
-       <property name="text">
-        <string>Adicionar produto</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_delete">
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-                background: #d16969; 
-                color: #fff; 
-                font: Times New Roman; 
-                font-size: 12px; 
-                font-weight: 700; 
-                border-radius: 5px; 
-                height: 30px;
-				width: 150px;
-            }
-
-            QPushButton:hover {
-                background: #cf8686;
-            }</string>
-       </property>
-       <property name="text">
-        <string>Excluir produto</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_search">
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-				background-color: rgb(58, 141, 97);
-                color: #fff; 
-                font: Times New Roman; 
-                font-size: 12px; 
-                font-weight: 700; 
-                border-radius: 5px; 
-                height: 30px;
-				width: 150px;
-            }
-
-            QPushButton:hover {
-                background: #4d945f;
-            }</string>
-       </property>
-       <property name="text">
-        <string>Buscar informações</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <widget class="Line" name="line">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
    </item>
-   <item row="6" column="0">
+   <item row="7" column="0">
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="1" column="3">
       <widget class="QPushButton" name="btn_finish">
@@ -187,108 +111,6 @@
     </layout>
    </item>
    <item row="5" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="label_3">
-       <property name="styleSheet">
-        <string notr="true">font-size: 12pt</string>
-       </property>
-       <property name="text">
-        <string>Dinheiro:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineMoney">
-       <property name="styleSheet">
-        <string notr="true">QLineEdit {
-                background: white;
-                height: 25px;
-                border: 1px solid #474747;
-                border-radius: 2px;
-                font-size: 14px;
-                font: sans-serif;
-				width: 120px;
-            }
-            QLineEdit:focus {
-                border: 1px solid #23a5c2;
-            }</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_2">
-       <property name="styleSheet">
-        <string notr="true">font-size: 12pt</string>
-       </property>
-       <property name="text">
-        <string>Troco:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineTroco">
-       <property name="styleSheet">
-        <string notr="true">QLineEdit {
-                background: white;
-                height: 25px;
-                border: 1px solid #474747;
-                border-radius: 2px;
-                font-size: 14px;
-                font: sans-serif;
-				width: 120px;
-            }
-            QLineEdit:focus {
-                border: 1px solid #23a5c2;
-            }</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="styleSheet">
-        <string notr="true">font-size: 12pt
-</string>
-       </property>
-       <property name="text">
-        <string>Total: R$</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="line_total">
-       <property name="styleSheet">
-        <string notr="true">QLineEdit {
-                background: white;
-                height: 25px;
-                border: 1px solid #474747;
-                border-radius: 2px;
-                font-size: 14px;
-                font: sans-serif;
-				width: 120px;
-            }
-            QLineEdit:focus {
-                border: 1px solid #23a5c2;
-            }</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="4" column="0">
     <widget class="QTableWidget" name="tableWidget">
      <property name="styleSheet">
       <string notr="true">font: 11pt arial;
@@ -361,6 +183,331 @@ alternate-background-color: rgb(232, 232, 232);
       </property>
      </column>
     </widget>
+   </item>
+   <item row="6" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">font-size: 12pt</string>
+       </property>
+       <property name="text">
+        <string>Dinheiro: R$</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineMoney">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+                background: white;
+                height: 25px;
+                border: 1px solid #474747;
+                border-radius: 2px;
+                font-size: 14px;
+                font: sans-serif;
+				width: 120px;
+            }
+            QLineEdit:focus {
+                border: 1px solid #23a5c2;
+            }</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">font-size: 12pt</string>
+       </property>
+       <property name="text">
+        <string>Troco: R$</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineTroco">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+                background: white;
+                height: 25px;
+                border: 1px solid #474747;
+                border-radius: 2px;
+                font-size: 14px;
+                font: sans-serif;
+				width: 120px;
+            }
+            QLineEdit:focus {
+                border: 1px solid #23a5c2;
+            }</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">font-size: 12pt
+</string>
+       </property>
+       <property name="text">
+        <string>Total: R$</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="line_total">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+                background: white;
+                height: 25px;
+                border: 1px solid #474747;
+                border-radius: 2px;
+                font-size: 14px;
+                font: sans-serif;
+				width: 120px;
+            }
+            QLineEdit:focus {
+                border: 1px solid #23a5c2;
+            }</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="1" colspan="3">
+      <widget class="QLineEdit" name="lineNome">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+                background: white;
+                height: 25px;
+                border: 1px solid #474747;
+                border-radius: 2px;
+                font-size: 14px;
+                font: sans-serif;
+				width: 120px;
+            }
+            QLineEdit:focus {
+                border: 1px solid #23a5c2;
+            }</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>5</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="lineCPF">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+                background: white;
+                height: 25px;
+                border: 1px solid #474747;
+                border-radius: 2px;
+                font-size: 14px;
+                font: sans-serif;
+				width: 120px;
+            }
+            QLineEdit:focus {
+                border: 1px solid #23a5c2;
+            }</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLabel" name="label_6">
+       <property name="styleSheet">
+        <string notr="true">font-size: 12pt;
+padding: 0 10px;</string>
+       </property>
+       <property name="text">
+        <string>Data</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="styleSheet">
+        <string notr="true">font-size: 12pt;
+padding-right: 10px;</string>
+       </property>
+       <property name="text">
+        <string>CPF</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QLineEdit" name="lineData">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+                background: white;
+                height: 25px;
+                border: 1px solid #474747;
+                border-radius: 2px;
+                font-size: 14px;
+                font: sans-serif;
+				width: 120px;
+            }
+            QLineEdit:focus {
+                border: 1px solid #23a5c2;
+            }</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="styleSheet">
+        <string notr="true">font-size: 12pt;
+padding-right: 10px;</string>
+       </property>
+       <property name="text">
+        <string>Nome</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4" rowspan="3">
+      <widget class="QLabel" name="label_7">
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+	font-size: 18pt;
+	margin: 0  60px;
+}</string>
+       </property>
+       <property name="text">
+        <string>Venda</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="btn_add">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+                background: #3C8FBC; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+				width: 150px;
+				margin: 10px 0;
+            }
+
+            QPushButton:hover {
+                background: #81b2eb;
+            }</string>
+       </property>
+       <property name="text">
+        <string>Adicionar produto</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_delete">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+                background: #d16969; 
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+				width: 150px;
+            }
+
+            QPushButton:hover {
+                background: #cf8686;
+            }</string>
+       </property>
+       <property name="text">
+        <string>Excluir produto</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_search">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+				background-color: rgb(58, 141, 97);
+                color: #fff; 
+                font: Times New Roman; 
+                font-size: 12px; 
+                font-weight: 700; 
+                border-radius: 5px; 
+                height: 30px;
+				width: 150px;
+            }
+
+            QPushButton:hover {
+                background: #4d945f;
+            }</string>
+       </property>
+       <property name="text">
+        <string>Buscar informações</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
