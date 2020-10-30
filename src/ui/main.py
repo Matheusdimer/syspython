@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(1000, 700)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -148,7 +148,7 @@ class Ui_MainWindow(object):
 "                font-weight: 700; \n"
 "                border-radius: 5px; \n"
 "                height: 20px;\n"
-"                width: 100%;\n"
+"                width: 125px;\n"
 "                padding: 0 15px;\n"
 "            }\n"
 "\n"

@@ -6,79 +6,99 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>527</width>
-    <height>185</height>
+    <width>435</width>
+    <height>159</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Aviso</string>
   </property>
-  <widget class="QPushButton" name="btn_no">
-   <property name="geometry">
-    <rect>
-     <x>400</x>
-     <y>130</y>
-     <width>90</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="3">
+    <widget class="QPushButton" name="btn_no">
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
 	background: #c73a41;
 	border-radius: 5px;
 	color: white;
 	font-size: 12px;
+	height: 30px;
+	width: 70px;
 }
 QPushButton:hover{
 	background: #bf565b;
 }</string>
-   </property>
-   <property name="text">
-    <string>Não</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_yes">
-   <property name="geometry">
-    <rect>
-     <x>290</x>
-     <y>130</y>
-     <width>90</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
+     </property>
+     <property name="text">
+      <string>Não</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QPushButton" name="btn_yes">
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
 	background: #3dbf5c;
 	border-radius: 5px;
 	color: white;
 	font-size: 12px;
+	height: 30px;
+	width: 70px;
 }
 QPushButton:hover{
 	background: #91dba8;
 }</string>
-   </property>
-   <property name="text">
-    <string>Sim</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>60</y>
-     <width>431</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font-size: 14px;
+     </property>
+     <property name="text">
+      <string>Sim</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="0" colspan="4">
+    <widget class="QLabel" name="label">
+     <property name="styleSheet">
+      <string notr="true">font-size: 14px;
 text-align: center;
 </string>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>10</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

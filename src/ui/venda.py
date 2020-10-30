@@ -13,13 +13,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_form_venda(object):
     def setupUi(self, form_venda):
-        form_venda.setObjectName("form_venda")
-        form_venda.resize(870, 630)
-        self.gridLayout = QtWidgets.QGridLayout(form_venda)
+        self.form_venda = form_venda
+        self.form_venda.setObjectName("form_venda")
+        self.form_venda.resize(864, 632)
+        self.gridLayout = QtWidgets.QGridLayout(self.form_venda)
         self.gridLayout.setObjectName("gridLayout")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.btn_add = QtWidgets.QPushButton(form_venda)
+        self.btn_add = QtWidgets.QPushButton(self.form_venda)
         self.btn_add.setStyleSheet("QPushButton {\n"
 "                background: #3C8FBC; \n"
 "                color: #fff; \n"
@@ -36,8 +37,8 @@ class Ui_form_venda(object):
 "            }")
         self.btn_add.setObjectName("btn_add")
         self.horizontalLayout_2.addWidget(self.btn_add)
-        self.pushButton = QtWidgets.QPushButton(form_venda)
-        self.pushButton.setStyleSheet("QPushButton {\n"
+        self.btn_delete = QtWidgets.QPushButton(self.form_venda)
+        self.btn_delete.setStyleSheet("QPushButton {\n"
 "                background: #d16969; \n"
 "                color: #fff; \n"
 "                font: Times New Roman; \n"
@@ -45,17 +46,37 @@ class Ui_form_venda(object):
 "                font-weight: 700; \n"
 "                border-radius: 5px; \n"
 "                height: 30px;\n"
+"                width: 150px;\n"
 "            }\n"
 "\n"
 "            QPushButton:hover {\n"
 "                background: #cf8686;\n"
 "            }")
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_2.addWidget(self.pushButton)
+        self.btn_delete.setObjectName("btn_delete")
+        self.horizontalLayout_2.addWidget(self.btn_delete)
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem)
+        self.btn_search = QtWidgets.QPushButton(self.form_venda)
+        self.btn_search.setStyleSheet("QPushButton {\n"
+"                background-color: rgb(58, 141, 97);\n"
+"                color: #fff; \n"
+"                font: Times New Roman; \n"
+"                font-size: 12px; \n"
+"                font-weight: 700; \n"
+"                border-radius: 5px; \n"
+"                height: 30px;\n"
+"                width: 150px;\n"
+"            }\n"
+"\n"
+"            QPushButton:hover {\n"
+"                background: #4d945f;\n"
+"            }")
+        self.btn_search.setObjectName("btn_search")
+        self.horizontalLayout_2.addWidget(self.btn_search)
         self.gridLayout.addLayout(self.horizontalLayout_2, 2, 0, 1, 1)
         self.gridLayout_2 = QtWidgets.QGridLayout()
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.btn_finish = QtWidgets.QPushButton(form_venda)
+        self.btn_finish = QtWidgets.QPushButton(self.form_venda)
         self.btn_finish.setStyleSheet("QPushButton {\n"
 "                background: #408552; \n"
 "                color: #fff; \n"
@@ -64,17 +85,15 @@ class Ui_form_venda(object):
 "                font-weight: 700; \n"
 "                border-radius: 5px; \n"
 "                height: 30px;\n"
-"                width: 122px;\n"
+"                width: 150px;\n"
 "            }\n"
 "\n"
 "            QPushButton:hover {\n"
 "                background: #4d945f;\n"
 "            }")
         self.btn_finish.setObjectName("btn_finish")
-        self.gridLayout_2.addWidget(self.btn_finish, 1, 2, 1, 1)
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_2.addItem(spacerItem, 1, 1, 1, 1)
-        self.btn_cancel = QtWidgets.QPushButton(form_venda)
+        self.gridLayout_2.addWidget(self.btn_finish, 1, 3, 1, 1)
+        self.btn_cancel = QtWidgets.QPushButton(self.form_venda)
         self.btn_cancel.setStyleSheet("QPushButton {\n"
 "                background: #d16969; \n"
 "                color: #fff; \n"
@@ -91,17 +110,74 @@ class Ui_form_venda(object):
 "            }")
         self.btn_cancel.setObjectName("btn_cancel")
         self.gridLayout_2.addWidget(self.btn_cancel, 1, 0, 1, 1)
+        self.btn_total = QtWidgets.QPushButton(self.form_venda)
+        self.btn_total.setStyleSheet("QPushButton {\n"
+"                background: #3C8FBC; \n"
+"                color: #fff; \n"
+"                font: Times New Roman; \n"
+"                font-size: 12px; \n"
+"                font-weight: 700; \n"
+"                border-radius: 5px; \n"
+"                height: 30px;\n"
+"                width: 150px;\n"
+"            }\n"
+"\n"
+"            QPushButton:hover {\n"
+"                background: #81b2eb;\n"
+"            }")
+        self.btn_total.setObjectName("btn_total")
+        self.gridLayout_2.addWidget(self.btn_total, 1, 2, 1, 1)
+        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_2.addItem(spacerItem1, 1, 1, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_2, 6, 0, 1, 1)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        spacerItem1 = QtWidgets.QSpacerItem(650, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem1)
-        self.label = QtWidgets.QLabel(form_venda)
+        self.label_3 = QtWidgets.QLabel(self.form_venda)
+        self.label_3.setStyleSheet("font-size: 12pt")
+        self.label_3.setObjectName("label_3")
+        self.horizontalLayout.addWidget(self.label_3)
+        self.lineMoney = QtWidgets.QLineEdit(self.form_venda)
+        self.lineMoney.setStyleSheet("QLineEdit {\n"
+"                background: white;\n"
+"                height: 25px;\n"
+"                border: 1px solid #474747;\n"
+"                border-radius: 2px;\n"
+"                font-size: 14px;\n"
+"                font: sans-serif;\n"
+"                width: 120px;\n"
+"            }\n"
+"            QLineEdit:focus {\n"
+"                border: 1px solid #23a5c2;\n"
+"            }")
+        self.lineMoney.setObjectName("lineMoney")
+        self.horizontalLayout.addWidget(self.lineMoney)
+        self.label_2 = QtWidgets.QLabel(self.form_venda)
+        self.label_2.setStyleSheet("font-size: 12pt")
+        self.label_2.setObjectName("label_2")
+        self.horizontalLayout.addWidget(self.label_2)
+        self.lineTroco = QtWidgets.QLineEdit(self.form_venda)
+        self.lineTroco.setStyleSheet("QLineEdit {\n"
+"                background: white;\n"
+"                height: 25px;\n"
+"                border: 1px solid #474747;\n"
+"                border-radius: 2px;\n"
+"                font-size: 14px;\n"
+"                font: sans-serif;\n"
+"                width: 120px;\n"
+"            }\n"
+"            QLineEdit:focus {\n"
+"                border: 1px solid #23a5c2;\n"
+"            }")
+        self.lineTroco.setObjectName("lineTroco")
+        self.horizontalLayout.addWidget(self.lineTroco)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem2)
+        self.label = QtWidgets.QLabel(self.form_venda)
         self.label.setStyleSheet("font-size: 12pt\n"
 "")
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.label)
-        self.line_total = QtWidgets.QLineEdit(form_venda)
+        self.line_total = QtWidgets.QLineEdit(self.form_venda)
         self.line_total.setStyleSheet("QLineEdit {\n"
 "                background: white;\n"
 "                height: 25px;\n"
@@ -117,7 +193,7 @@ class Ui_form_venda(object):
         self.line_total.setObjectName("line_total")
         self.horizontalLayout.addWidget(self.line_total)
         self.gridLayout.addLayout(self.horizontalLayout, 5, 0, 1, 1)
-        self.tableWidget = QtWidgets.QTableWidget(form_venda)
+        self.tableWidget = QtWidgets.QTableWidget(self.form_venda)
         self.tableWidget.setStyleSheet("font: 11pt arial;\n"
 "color: #434343;\n"
 "font-weight: 450;\n"
@@ -146,16 +222,32 @@ class Ui_form_venda(object):
         self.tableWidget.verticalHeader().setVisible(False)
         self.gridLayout.addWidget(self.tableWidget, 4, 0, 1, 1)
 
-        self.retranslateUi(form_venda)
-        QtCore.QMetaObject.connectSlotsByName(form_venda)
+        self.retranslateUi(self.form_venda)
+        QtCore.QMetaObject.connectSlotsByName(self.form_venda)
+
+        self.resizeColumns_sale()
+
+    def resizeEvent(self, QResizeEvent):
+        self.resizeColumns_sale()
+
+    def resizeColumns_sale(self):
+        self.tableWidget.setColumnWidth(0, self.form_venda.width() * (10/100))
+        self.tableWidget.setColumnWidth(1, self.form_venda.width() * (27/100))
+        self.tableWidget.setColumnWidth(2, self.form_venda.width() * (20/100))
+        self.tableWidget.setColumnWidth(3, self.form_venda.width() * (20/100))
+        self.tableWidget.setColumnWidth(4, self.form_venda.width() * (20/100))
 
     def retranslateUi(self, form_venda):
         _translate = QtCore.QCoreApplication.translate
-        form_venda.setWindowTitle(_translate("form_venda", "Nova venda"))
+        self.form_venda.setWindowTitle(_translate("form_venda", "Nova venda"))
         self.btn_add.setText(_translate("form_venda", "Adicionar produto"))
-        self.pushButton.setText(_translate("form_venda", "Excluir produto da venda"))
+        self.btn_delete.setText(_translate("form_venda", "Excluir produto"))
+        self.btn_search.setText(_translate("form_venda", "Buscar informações"))
         self.btn_finish.setText(_translate("form_venda", "Finalizar venda"))
         self.btn_cancel.setText(_translate("form_venda", "Cancelar"))
+        self.btn_total.setText(_translate("form_venda", "Totalizar"))
+        self.label_3.setText(_translate("form_venda", "Dinheiro: R$"))
+        self.label_2.setText(_translate("form_venda", "Troco: R$"))
         self.label.setText(_translate("form_venda", "Total: R$"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("form_venda", "Código"))

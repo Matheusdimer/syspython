@@ -19,7 +19,6 @@ class Ui_MainWindow2(object):
         MainWindow.resize(350, 180)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.centralwidget.setStyleSheet("background-color: #90b8d1")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
         self.linecod = QtWidgets.QLineEdit(self.centralwidget)

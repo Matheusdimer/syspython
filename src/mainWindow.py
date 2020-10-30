@@ -109,7 +109,21 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.uiSale.btn_cancel.clicked.connect(self.saleWindow.close)
         self.uiSale.tableWidget.setRowCount(self.rows)
         self.uiSale.btn_add.clicked.connect(self.newLine)
-        self.uiSale.pushButton.clicked.connect(self.deletLine)
+        self.uiSale.btn_delete.clicked.connect(self.deletLine)
+        self.uiSale.btn_search.clicked.connect(self.searchInformation)
+        self.uiSale.btn_total.clicked.connect(self.countTotal)
+        self.uiSale.tableWidget.horizontalHeader().setStyleSheet(
+        """
+        QHeaderView::section {
+            background-color: #2e85db; 
+            font: 14px arial; 
+            font-weight: 600; 
+            color: white; 
+            border: none; 
+            border-right: 1px solid #949494
+        }
+        """
+        )
 
     def newLine(self):
         self.rows += 1
@@ -119,6 +133,54 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         index = self.uiSale.tableWidget.selectedIndexes()[0]
         self.uiSale.tableWidget.removeRow(index.row())
         self.rows -= 1
+
+    def searchInformation(self):
+        count = self.uiSale.tableWidget.rowCount()
+        for n in range(count):
+            index = self.uiSale.tableWidget.item(n, 0).text()
+            data = self.banco.consulta("Produtos", campo="CODIGO", pesquisa=index)
+            if data:
+                item = QtWidgets.QTableWidgetItem(f"{data[0][0]:0>4}")
+                item.setTextAlignment(QtCore.Qt.AlignRight)
+                self.uiSale.tableWidget.setItem(n, 0, item)
+                item = QtWidgets.QTableWidgetItem(str(data[0][1]))
+                item.setTextAlignment(QtCore.Qt.AlignTop)
+                self.uiSale.tableWidget.setItem(n, 1, item)
+                item = QtWidgets.QTableWidgetItem(f"{data[0][2]:.2f}")
+                item.setTextAlignment(QtCore.Qt.AlignRight)
+                self.uiSale.tableWidget.setItem(n, 2, item)
+            else:
+                self.msgInfo(f"Não há produto com o código {index:0>4}")
+
+    def countTotal(self):
+        count = self.uiSale.tableWidget.rowCount()
+        total = 0
+        for n in range(count):
+            preco = self.uiSale.tableWidget.item(n, 2)
+            if not preco:
+                break
+            preco = preco.text()
+            quant = self.uiSale.tableWidget.item(n, 3)
+            if not quant:
+                break
+            quant = quant.text()
+            if not quant:
+                self.msgInfo("Por favor, digite as quantidades!")
+                break
+            total_linha = float(preco) * float(quant)
+            total += total_linha
+            quant = QtWidgets.QTableWidgetItem(quant)
+            quant.setTextAlignment(QtCore.Qt.AlignRight)
+            self.uiSale.tableWidget.setItem(n, 3, quant)
+            total_linha = QtWidgets.QTableWidgetItem(f"{total_linha:.2f}")
+            total_linha.setTextAlignment(QtCore.Qt.AlignRight)
+            self.uiSale.tableWidget.setItem(n, 4, total_linha)
+
+        self.uiSale.line_total.setText(f"{total:.2f}")
+        dinheiro = self.uiSale.lineMoney.text()
+        if dinheiro:
+            troco = float(dinheiro) - total
+            self.uiSale.lineTroco.setText(f"{troco:.2f}")
 
     def openEdit(self):
         self.window = QtWidgets.QMainWindow()
