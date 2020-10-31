@@ -5,6 +5,7 @@ from src.banco import Banco
 from src.ui.msg import Ui_Form
 from src.ui.msgYesNo import Ui_Msg
 from src.ui.venda import Ui_form_venda
+from src.recibo import gerarRecibo
 import sys
 
 class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -125,6 +126,8 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         """
         )
         self.resizeColumns_sale()
+        self.uiSale.btn_finish.clicked.connect(self.genNota)
+        self.count = 0
 
     def resizeColumns_sale(self):
         self.uiSale.tableWidget.setColumnWidth(0, self.width() * (15/100))
@@ -161,9 +164,9 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.msgInfo(f"Não há produto com o código {index:0>4}")
 
     def countTotal(self):
-        count = self.uiSale.tableWidget.rowCount()
+        self.count = self.uiSale.tableWidget.rowCount()
         total = 0
-        for n in range(count):
+        for n in range(self.count):
             preco = self.uiSale.tableWidget.item(n, 2)
             if not preco:
                 break
@@ -189,6 +192,33 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if dinheiro:
             troco = float(dinheiro) - total
             self.uiSale.lineTroco.setText(f"{troco:.2f}")
+
+    def genNota(self):
+        try:
+            cabecalho = [
+                self.uiSale.lineNome.text(),
+                self.uiSale.lineCPF.text(),
+                self.uiSale.lineData.text()
+            ]
+
+            produtos = []
+            if self.count > 0:
+                for n in range(self.count):
+                    produtos.append([
+                        self.uiSale.tableWidget.item(n, 0).text(),
+                        self.uiSale.tableWidget.item(n, 1).text(),
+                        float(self.uiSale.tableWidget.item(n, 2).text()),
+                        int(self.uiSale.tableWidget.item(n, 3).text()),
+                        float(self.uiSale.tableWidget.item(n, 4).text())
+                    ])
+            
+            total = float(self.uiSale.line_total.text())
+
+            if produtos and cabecalho and total:
+                arquivo = cabecalho[2].replace("/", "_") + "-" + cabecalho[0].replace(" ", "_")
+                gerarRecibo(arquivo, produtos, total, cabecalho=cabecalho)
+        except:
+            self.msgInfo("Falha ao gerar nota.")
 
     def openEdit(self):
         self.window = QtWidgets.QMainWindow()
