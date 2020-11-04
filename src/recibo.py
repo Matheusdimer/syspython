@@ -1,6 +1,7 @@
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 import os
+from sys import platform
 
 def gerarRecibo(arquivo, itens, total, title=None, cabecalho=None):
     nLinhas = len(itens)
@@ -53,7 +54,10 @@ def gerarRecibo(arquivo, itens, total, title=None, cabecalho=None):
         pdf.setTitle(title)
     pdf.save()
     os.replace(f"./{arquivo}.pdf", f"./recibos/{arquivo}.pdf")
-    os.system(f"start ./recibos/{arquivo}.pdf")
+    if platform == "linux":
+        os.system(f"xdg-open ./recibos/{arquivo}.pdf")
+    else: 
+        os.system(f"start ./recibos/{arquivo}.pdf")
 """
 lista = [
     ["0005", "Cola Tenaz", 2.90, "10", 5000.00],
