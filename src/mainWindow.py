@@ -241,6 +241,7 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.banco.cadastro("Produtos", self.data):
             #self.labelinfo.setText(f"Produto {self.dados[0]:0>2}: {self.dados[1]} cadastrado com sucesso!")
             self.msgInfo(f"Produto cadastrado com sucesso!")
+            self.window.close()
             self.dados()
         else:
             #self.labelinfo.setText("Erro ao cadastrar produto, verifique os campos.")

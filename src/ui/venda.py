@@ -86,9 +86,10 @@ class Ui_form_venda(object):
 "alternate-background-color: rgb(232, 232, 232);\n"
 "\n"
 "")
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.DoubleClicked|QtWidgets.QAbstractItemView.EditKeyPressed|QtWidgets.QAbstractItemView.SelectedClicked)
         self.tableWidget.setAlternatingRowColors(True)
         self.tableWidget.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectItems)
         self.tableWidget.setGridStyle(QtCore.Qt.SolidLine)
         self.tableWidget.setRowCount(10)
         self.tableWidget.setColumnCount(5)
