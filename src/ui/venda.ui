@@ -307,7 +307,7 @@ alternate-background-color: rgb(232, 232, 232);
    </item>
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout_3">
-     <item row="0" column="1" colspan="3">
+     <item row="0" column="1" colspan="4">
       <widget class="QLineEdit" name="lineNome">
        <property name="styleSheet">
         <string notr="true">QLineEdit {
@@ -341,6 +341,17 @@ alternate-background-color: rgb(232, 232, 232);
        </property>
       </spacer>
      </item>
+     <item row="2" column="2">
+      <widget class="QLabel" name="label_6">
+       <property name="styleSheet">
+        <string notr="true">font-size: 12pt;
+padding: 0 10px;</string>
+       </property>
+       <property name="text">
+        <string>Data</string>
+       </property>
+      </widget>
+     </item>
      <item row="2" column="1">
       <widget class="QLineEdit" name="lineCPF">
        <property name="styleSheet">
@@ -359,14 +370,16 @@ alternate-background-color: rgb(232, 232, 232);
        </property>
       </widget>
      </item>
-     <item row="2" column="2">
-      <widget class="QLabel" name="label_6">
+     <item row="0" column="5" rowspan="3">
+      <widget class="QLabel" name="label_7">
        <property name="styleSheet">
-        <string notr="true">font-size: 12pt;
-padding: 0 10px;</string>
+        <string notr="true">QLabel {
+	font-size: 18pt;
+	margin: 0  60px;
+}</string>
        </property>
        <property name="text">
-        <string>Data</string>
+        <string>Venda</string>
        </property>
       </widget>
      </item>
@@ -381,24 +394,6 @@ padding-right: 10px;</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="3">
-      <widget class="QLineEdit" name="lineData">
-       <property name="styleSheet">
-        <string notr="true">QLineEdit {
-                background: white;
-                height: 25px;
-                border: 1px solid #474747;
-                border-radius: 2px;
-                font-size: 14px;
-                font: sans-serif;
-				width: 120px;
-            }
-            QLineEdit:focus {
-                border: 1px solid #23a5c2;
-            }</string>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label_4">
        <property name="styleSheet">
@@ -410,16 +405,55 @@ padding-right: 10px;</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="4" rowspan="3">
-      <widget class="QLabel" name="label_7">
+     <item row="2" column="3" colspan="2">
+      <widget class="QDateEdit" name="dateEdit">
        <property name="styleSheet">
-        <string notr="true">QLabel {
-	font-size: 18pt;
-	margin: 0  60px;
+        <string notr="true">QDateEdit
+{
+	background: white;
+	height: 25px;
+	border: 1px solid #474747;
+	border-radius: 4px;
+	font-size: 14px;
+	font: sans-serif;
+	width: 90px;
+}
+
+QDateEdit:focus{
+    border-color: #23a5c2;
+}
+
+QDateEdit::drop-down {
+	image: url(&quot;./src/ui/images/drop-down.svg&quot;);
+   	width:15px;
+   	height:15px;
+   	subcontrol-position: right center;
+   	subcontrol-origin:margin;
+	margin-right: 4px;
+   	background-color: white;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 2px;
+	border-color: rgb(100,100,100);
+	spacing: 5px; 
+}
+
+QDateEdit::drop-down:hover{
+	border-color: #23a5c2;
 }</string>
        </property>
-       <property name="text">
-        <string>Venda</string>
+       <property name="dateTime">
+        <datetime>
+         <hour>0</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>2020</year>
+         <month>1</month>
+         <day>1</day>
+        </datetime>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

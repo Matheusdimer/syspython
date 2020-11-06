@@ -189,9 +189,14 @@ class Ui_form_venda(object):
 "                border: 1px solid #23a5c2;\n"
 "            }")
         self.lineNome.setObjectName("lineNome")
-        self.gridLayout_3.addWidget(self.lineNome, 0, 1, 1, 3)
+        self.gridLayout_3.addWidget(self.lineNome, 0, 1, 1, 4)
         spacerItem3 = QtWidgets.QSpacerItem(20, 5, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.gridLayout_3.addItem(spacerItem3, 1, 1, 1, 1)
+        self.label_6 = QtWidgets.QLabel(form_venda)
+        self.label_6.setStyleSheet("font-size: 12pt;\n"
+"padding: 0 10px;")
+        self.label_6.setObjectName("label_6")
+        self.gridLayout_3.addWidget(self.label_6, 2, 2, 1, 1)
         self.lineCPF = QtWidgets.QLineEdit(form_venda)
         self.lineCPF.setStyleSheet("QLineEdit {\n"
 "                background: white;\n"
@@ -207,43 +212,61 @@ class Ui_form_venda(object):
 "            }")
         self.lineCPF.setObjectName("lineCPF")
         self.gridLayout_3.addWidget(self.lineCPF, 2, 1, 1, 1)
-        self.label_6 = QtWidgets.QLabel(form_venda)
-        self.label_6.setStyleSheet("font-size: 12pt;\n"
-"padding: 0 10px;")
-        self.label_6.setObjectName("label_6")
-        self.gridLayout_3.addWidget(self.label_6, 2, 2, 1, 1)
-        self.label_5 = QtWidgets.QLabel(form_venda)
-        self.label_5.setStyleSheet("font-size: 12pt;\n"
-"padding-right: 10px;")
-        self.label_5.setObjectName("label_5")
-        self.gridLayout_3.addWidget(self.label_5, 2, 0, 1, 1)
-        self.lineData = QtWidgets.QLineEdit(form_venda)
-        self.lineData.setStyleSheet("QLineEdit {\n"
-"                background: white;\n"
-"                height: 25px;\n"
-"                border: 1px solid #474747;\n"
-"                border-radius: 2px;\n"
-"                font-size: 14px;\n"
-"                font: sans-serif;\n"
-"                width: 120px;\n"
-"            }\n"
-"            QLineEdit:focus {\n"
-"                border: 1px solid #23a5c2;\n"
-"            }")
-        self.lineData.setObjectName("lineData")
-        self.gridLayout_3.addWidget(self.lineData, 2, 3, 1, 1)
-        self.label_4 = QtWidgets.QLabel(form_venda)
-        self.label_4.setStyleSheet("font-size: 12pt;\n"
-"padding-right: 10px;")
-        self.label_4.setObjectName("label_4")
-        self.gridLayout_3.addWidget(self.label_4, 0, 0, 1, 1)
         self.label_7 = QtWidgets.QLabel(form_venda)
         self.label_7.setStyleSheet("QLabel {\n"
 "    font-size: 18pt;\n"
 "    margin: 0  60px;\n"
 "}")
         self.label_7.setObjectName("label_7")
-        self.gridLayout_3.addWidget(self.label_7, 0, 4, 3, 1)
+        self.gridLayout_3.addWidget(self.label_7, 0, 5, 3, 1)
+        self.label_5 = QtWidgets.QLabel(form_venda)
+        self.label_5.setStyleSheet("font-size: 12pt;\n"
+"padding-right: 10px;")
+        self.label_5.setObjectName("label_5")
+        self.gridLayout_3.addWidget(self.label_5, 2, 0, 1, 1)
+        self.label_4 = QtWidgets.QLabel(form_venda)
+        self.label_4.setStyleSheet("font-size: 12pt;\n"
+"padding-right: 10px;")
+        self.label_4.setObjectName("label_4")
+        self.gridLayout_3.addWidget(self.label_4, 0, 0, 1, 1)
+        self.dateEdit = QtWidgets.QDateEdit(form_venda)
+        self.dateEdit.setStyleSheet("QDateEdit\n"
+"{\n"
+"    background: white;\n"
+"    height: 25px;\n"
+"    border: 1px solid #474747;\n"
+"    border-radius: 4px;\n"
+"    font-size: 14px;\n"
+"    font: sans-serif;\n"
+"    width: 90px;\n"
+"}\n"
+"\n"
+"QDateEdit:focus{\n"
+"    border-color: #23a5c2;\n"
+"}\n"
+"\n"
+"QDateEdit::drop-down {\n"
+"    image: url(\"./src/ui/images/drop-down.svg\");\n"
+"       width:15px;\n"
+"       height:15px;\n"
+"       subcontrol-position: right center;\n"
+"       subcontrol-origin:margin;\n"
+"    margin-right: 4px;\n"
+"       background-color: white;\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-radius: 2px;\n"
+"    border-color: rgb(100,100,100);\n"
+"    spacing: 5px; \n"
+"}\n"
+"\n"
+"QDateEdit::drop-down:hover{\n"
+"    border-color: #23a5c2;\n"
+"}")
+        self.dateEdit.setDateTime(QtCore.QDateTime(QtCore.QDate(2020, 1, 1), QtCore.QTime(0, 0, 0)))
+        self.dateEdit.setCalendarPopup(True)
+        self.dateEdit.setObjectName("dateEdit")
+        self.gridLayout_3.addWidget(self.dateEdit, 2, 3, 1, 2)
         self.gridLayout.addLayout(self.gridLayout_3, 0, 0, 1, 1)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
@@ -326,9 +349,9 @@ class Ui_form_venda(object):
         self.label_2.setText(_translate("form_venda", "Troco: R$"))
         self.label.setText(_translate("form_venda", "Total: R$"))
         self.label_6.setText(_translate("form_venda", "Data"))
+        self.label_7.setText(_translate("form_venda", "Venda"))
         self.label_5.setText(_translate("form_venda", "CPF"))
         self.label_4.setText(_translate("form_venda", "Nome"))
-        self.label_7.setText(_translate("form_venda", "Venda"))
         self.btn_add.setText(_translate("form_venda", "Adicionar produto"))
         self.btn_delete.setText(_translate("form_venda", "Excluir produto"))
         self.btn_search.setText(_translate("form_venda", "Buscar informações"))

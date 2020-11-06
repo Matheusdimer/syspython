@@ -6,6 +6,7 @@ from src.ui.msg import Ui_Form
 from src.ui.msgYesNo import Ui_Msg
 from src.ui.venda import Ui_form_venda
 from src.recibo import gerarRecibo
+from datetime import date
 import sys
 
 class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -128,6 +129,7 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.resizeColumns_sale()
         self.uiSale.btn_finish.clicked.connect(self.genNota)
         self.count = 0
+        self.uiSale.dateEdit.setDate(date.today())
 
     def resizeColumns_sale(self):
         self.uiSale.tableWidget.setColumnWidth(0, self.width() * (15/100))
@@ -195,10 +197,22 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def genNota(self):
         try:
+            date = self.uiSale.dateEdit.date().toPyDate().isoformat().replace("-", "/")
+            cpf = self.uiSale.lineCPF.text()
+            name = self.uiSale.lineNome.text()
+
+            if not name:
+                self.msgInfo("Campo Nome em branco!")
+                return
+
+            if not cpf or not cpf.isnumeric() or len(cpf) > 11:
+                self.msgInfo("CPF inválido!\nLembre-se de digitar somente os 11 números.")
+                return
+            
             cabecalho = [
-                self.uiSale.lineNome.text(),
-                self.uiSale.lineCPF.text(),
-                self.uiSale.lineData.text()
+                name,
+                f"{cpf[0:3]}.{cpf[3:7]}.{cpf[7:10]}-{cpf[10:12]}",
+                date[8:10:1] + "/" + date[5:8:1] + date[0:4:1]
             ]
 
             produtos = []
