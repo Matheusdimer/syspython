@@ -21,7 +21,7 @@ def gerarRecibo(arquivo, itens, total, title=None, cabecalho=None):
     pdf.setFillColor(HexColor("#1c1c1c"))
     if cabecalho:
         pdf.drawString(10, height-30, f"Nome: {cabecalho[0]}")
-        pdf.drawString(10, height-45, f"CPF : {cabecalho[1]}")
+        pdf.drawString(10, height-45, f"CPF: {cabecalho[1]}")
         pdf.drawString(10, height-60, f"Data: {cabecalho[2]}")
     
     y = height - 100

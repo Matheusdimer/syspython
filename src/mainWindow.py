@@ -211,7 +211,7 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
             cabecalho = [
                 name,
-                f"{cpf[0:3]}.{cpf[3:7]}.{cpf[7:10]}-{cpf[10:12]}",
+                f"{cpf[0:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:11]}",
                 date[8:10:1] + "/" + date[5:8:1] + date[0:4:1]
             ]
 
