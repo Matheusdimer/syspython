@@ -53,6 +53,10 @@ def gerarRecibo(arquivo, itens, total, title=None, cabecalho=None):
     if title:
         pdf.setTitle(title)
     pdf.save()
+    
+    if not os.path.isdir("./recibos"):
+        os.mkdir("./recibos")
+    
     os.replace(f"./{arquivo}.pdf", f"./recibos/{arquivo}.pdf")
     if platform == "linux":
         os.system(f"xdg-open ./recibos/{arquivo}.pdf")
