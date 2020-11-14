@@ -150,20 +150,25 @@ class mainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def searchInformation(self):
         count = self.uiSale.tableWidget.rowCount()
         for n in range(count):
-            index = self.uiSale.tableWidget.item(n, 0).text()
-            data = self.banco.consulta("Produtos", campo="CODIGO", pesquisa=index)
-            if data:
-                item = QtWidgets.QTableWidgetItem(f"{data[0][0]:0>4}")
-                item.setTextAlignment(QtCore.Qt.AlignRight + QtCore.Qt.AlignVCenter)
-                self.uiSale.tableWidget.setItem(n, 0, item)
-                item = QtWidgets.QTableWidgetItem(str(data[0][1]))
-                item.setTextAlignment(QtCore.Qt.AlignVCenter)
-                self.uiSale.tableWidget.setItem(n, 1, item)
-                item = QtWidgets.QTableWidgetItem(f"{data[0][2]:.2f}")
-                item.setTextAlignment(QtCore.Qt.AlignRight + QtCore.Qt.AlignVCenter)
-                self.uiSale.tableWidget.setItem(n, 2, item)
+            index = self.uiSale.tableWidget.item(n, 0)
+            if index:
+                index = index.text()
+                data = self.banco.consulta("Produtos", campo="CODIGO", pesquisa=index)
+                if data:
+                    item = QtWidgets.QTableWidgetItem(f"{data[0][0]:0>4}")
+                    item.setTextAlignment(QtCore.Qt.AlignRight + QtCore.Qt.AlignVCenter)
+                    self.uiSale.tableWidget.setItem(n, 0, item)
+                    item = QtWidgets.QTableWidgetItem(str(data[0][1]))
+                    item.setTextAlignment(QtCore.Qt.AlignVCenter)
+                    self.uiSale.tableWidget.setItem(n, 1, item)
+                    item = QtWidgets.QTableWidgetItem(f"{data[0][2]:.2f}")
+                    item.setTextAlignment(QtCore.Qt.AlignRight + QtCore.Qt.AlignVCenter)
+                    self.uiSale.tableWidget.setItem(n, 2, item)
+                else:
+                    self.msgInfo(f"Não há produto com o código {index:0>4}")
             else:
-                self.msgInfo(f"Não há produto com o código {index:0>4}")
+                self.msgInfo("Por favor, não deixe linhas em branco!")
+                break
 
     def countTotal(self):
         self.count = self.uiSale.tableWidget.rowCount()
